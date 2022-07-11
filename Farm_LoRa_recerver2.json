@@ -1,0 +1,56 @@
+[
+    {
+        "id": "dd7673ab61b0b559",
+        "type": "ui_switch",
+        "z": "df75adc60961f150",
+        "name": "",
+        "label": "Relay 5 Control",
+        "tooltip": "",
+        "group": "3777a044448db628",
+        "order": 20,
+        "width": 4,
+        "height": 1,
+        "passthru": false,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "i",
+        "onvalueType": "str",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "j",
+        "offvalueType": "str",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 840,
+        "y": 740,
+        "wires": [
+            [
+                "9fd9ce894ad7d069"
+            ]
+        ]
+    },
+    {
+        "id": "3777a044448db628",
+        "type": "ui_group",
+        "name": "Environmental Condition",
+        "tab": "ed9396327975311f",
+        "order": 1,
+        "disp": true,
+        "width": 24,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "ed9396327975311f",
+        "type": "ui_tab",
+        "name": "Farm Project",
+        "icon": "dashboard",
+        "order": 1,
+        "disabled": false,
+        "hidden": false
+    }
+]
