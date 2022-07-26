@@ -21,5 +21,6 @@ void loop() {
     while (LoRa.available()) {
       Serial.print((char)LoRa.read());
     }
+    Serial.println("");
   }
 }
