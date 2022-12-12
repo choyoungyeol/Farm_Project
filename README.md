@@ -10,3 +10,11 @@
 
 # Farm_Thesis_Slave2.json
 ![image](https://user-images.githubusercontent.com/60500365/204402224-9ecbd5b6-c5b4-4171-9201-893f4c5ea7b4.png)
+
+
+#정릴레이
+![정릴레이](https://user-images.githubusercontent.com/60500365/207020438-86fb4adc-bc0b-44b3-b575-15cdb23c11ed.png)
+
+
+#역릴레이
+![역릴레이](https://user-images.githubusercontent.com/60500365/207020523-c65dce06-b137-4548-9bf5-3bbed9219d17.png)
