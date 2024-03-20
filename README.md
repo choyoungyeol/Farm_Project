@@ -22,3 +22,7 @@
 # Education.json
 ![image](https://github.com/choyoungyeol/Farm_Project/assets/60500365/d4b69488-8633-4151-bfea-8f505be124ad)
 
+# Water_Control.json
+![image](https://github.com/choyoungyeol/Farm_Project/assets/60500365/16e6c9a8-9427-4d40-a2f8-49f867ba880c)
+
+
