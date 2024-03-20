@@ -25,4 +25,6 @@
 # Water_Control.json
 ![image](https://github.com/choyoungyeol/Farm_Project/assets/60500365/16e6c9a8-9427-4d40-a2f8-49f867ba880c)
 
+#SingleHouse.json
+![image](https://github.com/choyoungyeol/Farm_Project/assets/60500365/eee971f2-4691-4794-a476-2fcebb51bc3e)
 
