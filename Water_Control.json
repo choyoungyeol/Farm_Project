@@ -1,0 +1,688 @@
+[
+    {
+        "id": "4aeb941e1612cbc4",
+        "type": "tab",
+        "label": "플로우 2",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "63d8a64cfe9d43cf",
+        "type": "ui_gauge",
+        "z": "4aeb941e1612cbc4",
+        "name": "",
+        "group": "49eed59c.ec92cc",
+        "order": 3,
+        "width": 8,
+        "height": 6,
+        "gtype": "wave",
+        "title": "Water Content",
+        "label": "%",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "className": "",
+        "x": 840,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "8436f15e277b4aa4",
+        "type": "ui_gauge",
+        "z": "4aeb941e1612cbc4",
+        "name": "",
+        "group": "49eed59c.ec92cc",
+        "order": 5,
+        "width": 9,
+        "height": 6,
+        "gtype": "wave",
+        "title": "EC",
+        "label": "uS/m",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "3000",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "className": "",
+        "x": 810,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "cc3705dd0485ab71",
+        "type": "serial in",
+        "z": "4aeb941e1612cbc4",
+        "name": "",
+        "serial": "90c2d770290e3da8",
+        "x": 70,
+        "y": 200,
+        "wires": [
+            [
+                "3660dad01b870b44",
+                "b4aaa90144f507b9",
+                "c19a311e6031cd4b"
+            ]
+        ]
+    },
+    {
+        "id": "74fc6b4a6b6a10f5",
+        "type": "ui_gauge",
+        "z": "4aeb941e1612cbc4",
+        "name": "",
+        "group": "49eed59c.ec92cc",
+        "order": 4,
+        "width": 9,
+        "height": 6,
+        "gtype": "gage",
+        "title": "Temperature",
+        "label": "oC",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "60",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "className": "",
+        "x": 830,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "7065e13cdb9e9f93",
+        "type": "ui_text",
+        "z": "4aeb941e1612cbc4",
+        "group": "49eed59c.ec92cc",
+        "order": 1,
+        "width": 4,
+        "height": 1,
+        "name": "",
+        "label": "Measurement",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "x": 100,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "2ef26490ba457607",
+        "type": "file",
+        "z": "4aeb941e1612cbc4",
+        "name": "",
+        "filename": "D://Data/Water.csv",
+        "appendNewline": false,
+        "createDir": true,
+        "overwriteFile": "false",
+        "encoding": "none",
+        "x": 610,
+        "y": 500,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "f4c21635ccf3117d",
+        "type": "ui_chart",
+        "z": "4aeb941e1612cbc4",
+        "name": "",
+        "group": "49eed59c.ec92cc",
+        "order": 7,
+        "width": 8,
+        "height": 6,
+        "label": "Hourly Water Content",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": true,
+        "ymin": "0",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 860,
+        "y": 160,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "ce93799a886686fe",
+        "type": "ui_chart",
+        "z": "4aeb941e1612cbc4",
+        "name": "",
+        "group": "49eed59c.ec92cc",
+        "order": 15,
+        "width": 9,
+        "height": 6,
+        "label": "Hourly Temperature",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": true,
+        "ymin": "0",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 850,
+        "y": 280,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "3cd421704918eb29",
+        "type": "ui_chart",
+        "z": "4aeb941e1612cbc4",
+        "name": "",
+        "group": "49eed59c.ec92cc",
+        "order": 22,
+        "width": 9,
+        "height": 6,
+        "label": "Hourly EC",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": true,
+        "ymin": "0",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 830,
+        "y": 420,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "edd348c3930483d8",
+        "type": "ui_chart",
+        "z": "4aeb941e1612cbc4",
+        "name": "",
+        "group": "49eed59c.ec92cc",
+        "order": 27,
+        "width": 9,
+        "height": 7,
+        "label": "Daily EC",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "dd HH:mm",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "86400",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 820,
+        "y": 460,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "408742f0b5d66992",
+        "type": "ui_chart",
+        "z": "4aeb941e1612cbc4",
+        "name": "",
+        "group": "49eed59c.ec92cc",
+        "order": 24,
+        "width": 9,
+        "height": 7,
+        "label": "Daily Temperature",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "dd HH:mm",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "86400",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 850,
+        "y": 320,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "386e499e8ab75563",
+        "type": "ui_chart",
+        "z": "4aeb941e1612cbc4",
+        "name": "",
+        "group": "49eed59c.ec92cc",
+        "order": 23,
+        "width": 8,
+        "height": 7,
+        "label": "Daily Water Content",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "dd HH:mm",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "86400",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 860,
+        "y": 200,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "3660dad01b870b44",
+        "type": "json",
+        "z": "4aeb941e1612cbc4",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": true,
+        "x": 210,
+        "y": 200,
+        "wires": [
+            [
+                "d09645c002dd8b60"
+            ]
+        ]
+    },
+    {
+        "id": "d09645c002dd8b60",
+        "type": "function",
+        "z": "4aeb941e1612cbc4",
+        "name": "",
+        "func": "var b = JSON.parse(JSON.stringify(msg.payload)); \nb=msg;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 360,
+        "y": 200,
+        "wires": [
+            [
+                "32f3b8a8790affb2",
+                "1288596c6bc3ba93",
+                "3c663be5765bdb55"
+            ]
+        ]
+    },
+    {
+        "id": "32f3b8a8790affb2",
+        "type": "function",
+        "z": "4aeb941e1612cbc4",
+        "name": "",
+        "func": "msg.payload=msg.payload.VWC;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 600,
+        "y": 120,
+        "wires": [
+            [
+                "63d8a64cfe9d43cf",
+                "f4c21635ccf3117d",
+                "386e499e8ab75563"
+            ]
+        ]
+    },
+    {
+        "id": "1288596c6bc3ba93",
+        "type": "function",
+        "z": "4aeb941e1612cbc4",
+        "name": "",
+        "func": "msg.payload=msg.payload.Temperature;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 600,
+        "y": 240,
+        "wires": [
+            [
+                "74fc6b4a6b6a10f5",
+                "ce93799a886686fe",
+                "408742f0b5d66992"
+            ]
+        ]
+    },
+    {
+        "id": "3c663be5765bdb55",
+        "type": "function",
+        "z": "4aeb941e1612cbc4",
+        "name": "",
+        "func": "msg.payload=msg.payload.EC;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 600,
+        "y": 380,
+        "wires": [
+            [
+                "8436f15e277b4aa4",
+                "3cd421704918eb29",
+                "edd348c3930483d8"
+            ]
+        ]
+    },
+    {
+        "id": "b4aaa90144f507b9",
+        "type": "function",
+        "z": "4aeb941e1612cbc4",
+        "name": "replace char",
+        "func": "msg.payload = msg.payload.replace(':', ',');\nmsg.payload = msg.payload.replace(':', ',');\nmsg.payload = msg.payload.replace(':', ',');\nmsg.payload = msg.payload.replace(':', ',');\nmsg.payload = msg.payload.replace(':', ',');\nmsg.payload = msg.payload.replace(':', ',');\nmsg.payload = msg.payload.replace(':', ',');\nmsg.payload = msg.payload.replace('{', '');\nmsg.payload = msg.payload.replace('}', '');\nmsg.payload = msg.payload.replace('\"VWC\",', '');\nmsg.payload = msg.payload.replace('\"Temperature\",', '');\nmsg.payload = msg.payload.replace('\"EC\",', '');\n\nvar newDate = new Date();\nvar date = newDate.toLocaleDateString();\nvar time = newDate.toLocaleTimeString();\n\nmsg.payload = date + \",\" + time + \",\" + msg.payload;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 290,
+        "y": 500,
+        "wires": [
+            [
+                "2ef26490ba457607"
+            ]
+        ]
+    },
+    {
+        "id": "c19a311e6031cd4b",
+        "type": "function",
+        "z": "4aeb941e1612cbc4",
+        "name": "",
+        "func": "var obj = JSON.parse(msg.payload);\n\nvar newDate = new Date();\nvar date = newDate.toLocaleDateString();\nvar time = newDate.toLocaleTimeString('en-US', { hour12: false});\n\nfunction getTimeStamp() {\n  var d = new Date();\n  var s =\n    leadingZeros(d.getFullYear(), 4) + '-' +\n    leadingZeros(d.getMonth() + 1, 2) + '-' +\n    leadingZeros(d.getDate(), 2) + ' ' +\n\n    leadingZeros(d.getHours(), 2) + ':' +\n    leadingZeros(d.getMinutes(), 2) + ':' +\n    leadingZeros(d.getSeconds(), 2);\n\n  return s;\n}\n\nfunction leadingZeros(n, digits) {\n  var zero = '';\n  n = n.toString();\n\n  if (n.length < digits) {\n    for (i = 0; i < digits - n.length; i++)\n      zero += '0';\n  }\n  return zero + n;\n}\n\nmsg.topic = \"INSERT INTO greenhouse.WaterDB(VWC, Temperature, EC, `date`)\";\nmsg.topic += \"VALUES(\" + obj['VWC'] + \", \" + obj['Temperature'] + \", \" +  obj['EC'] + \",  +  current_timestamp());\";\nmsg.payload = {\"VWC\":0, \"Temperature\":0, \"EC\":0, \"date\": \"2021-01-03 00:00:00\" };\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 260,
+        "y": 600,
+        "wires": [
+            [
+                "f8b0bcd1a264203c"
+            ]
+        ]
+    },
+    {
+        "id": "f8b0bcd1a264203c",
+        "type": "Stackhero-MySQL",
+        "z": "4aeb941e1612cbc4",
+        "server": "77c1133f94eacae3",
+        "name": "WaterDB",
+        "x": 560,
+        "y": 640,
+        "wires": [
+            [
+                "91b5dd8fa6431965"
+            ]
+        ]
+    },
+    {
+        "id": "8e149f861983fa03",
+        "type": "inject",
+        "z": "4aeb941e1612cbc4",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "INSERT INTO db;",
+        "payload": "{\"Temperature\":0,\"Humidity\":0,\"Dew_Temperature\":0,\"Absolute_Humidity\":0,\"Vapor_pressure\":0,\"VPD\":0,\"RSW\":0,\"LSW\":0,\"RUW\":0,\"LUW\":0,\"C_Fan\":0,\"Fan\":0,\"Water\":0,\"Motor\":0,\"Rain\":0,\"Light\":0,\"C_Light\":0,\"date\":\"2021-01-03 00:00:00\"}",
+        "payloadType": "json",
+        "x": 90,
+        "y": 660,
+        "wires": [
+            [
+                "08deb186102c6aaf"
+            ]
+        ]
+    },
+    {
+        "id": "08deb186102c6aaf",
+        "type": "function",
+        "z": "4aeb941e1612cbc4",
+        "name": "insert an item into DB",
+        "func": "msg.topic = \"INSERT INTO greenhouse.WaterDB (VWC, Temperature, EC, `date`)\";\nmsg.topic += \"VALUES(0, 0, 0, current_timestamp());\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 300,
+        "y": 660,
+        "wires": [
+            [
+                "f8b0bcd1a264203c"
+            ]
+        ]
+    },
+    {
+        "id": "91b5dd8fa6431965",
+        "type": "debug",
+        "z": "4aeb941e1612cbc4",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 810,
+        "y": 640,
+        "wires": []
+    },
+    {
+        "id": "625cd32eccace322",
+        "type": "ui_spacer",
+        "z": "4aeb941e1612cbc4",
+        "name": "spacer",
+        "group": "96ebb46a2d99c4d3",
+        "order": 2,
+        "width": 12,
+        "height": 1
+    },
+    {
+        "id": "eba088123f0557aa",
+        "type": "ui_spacer",
+        "z": "4aeb941e1612cbc4",
+        "name": "spacer",
+        "group": "96ebb46a2d99c4d3",
+        "order": 7,
+        "width": 12,
+        "height": 1
+    },
+    {
+        "id": "49eed59c.ec92cc",
+        "type": "ui_group",
+        "name": "Single House",
+        "tab": "2dcaea80111a676f",
+        "order": 7,
+        "disp": true,
+        "width": "26",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "90c2d770290e3da8",
+        "type": "serial-port",
+        "serialport": "COM17",
+        "serialbaud": "9600",
+        "databits": "8",
+        "parity": "none",
+        "stopbits": "1",
+        "waitfor": "",
+        "dtr": "none",
+        "rts": "none",
+        "cts": "none",
+        "dsr": "none",
+        "newline": "\\n",
+        "bin": "false",
+        "out": "char",
+        "addchar": "",
+        "responsetimeout": "10000"
+    },
+    {
+        "id": "77c1133f94eacae3",
+        "type": "Stackhero-MySQL-Server",
+        "name": "",
+        "host": "127.0.0.1",
+        "port": "3306",
+        "tls": false,
+        "database": "greenhouse"
+    },
+    {
+        "id": "2dcaea80111a676f",
+        "type": "ui_tab",
+        "name": "Single House",
+        "icon": "dashboard",
+        "order": 1,
+        "disabled": false,
+        "hidden": false
+    }
+]
