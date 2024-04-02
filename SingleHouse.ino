@@ -1,3 +1,5 @@
+//Reverse Relay ON - LOW, OFF - HIGH
+
 #include <Sensirion.h>
 #include <Wire.h>
 #include <LiquidCrystal_I2C.h>
@@ -15,10 +17,10 @@ const uint8_t clockPin =  3;
 float temperature;
 float humidity;
 float dewpoint;
-float Low_VPD = 0.4;
-float High_VPD = 1.4;
-float Low_Temp = 12;
-float High_Temp = 40;
+float Low_VPD = 0.4;   //Setpoint Minimum VPD
+float High_VPD = 1.5;  //Setpoint Maximum VPD
+float Low_Temp = 12;    //Setpoint Minimum Temperature
+float High_Temp = 40;   //Setpoint Maximum Temperature
 
 int WindowR_O_Value = 0;
 int WindowR_C_Value = 0;
@@ -81,69 +83,91 @@ void loop()
   lcd.print("  kPa");
   delay(5000);
 
+  
   if (temperature < Low_Temp) {
     digitalWrite(WindowR_O, HIGH);
-    WindowR_O_Value = 0;
-    delay(1000);
-    digitalWrite(WindowR_C, LOW);
-    WindowR_C_Value = 1;
-    delay(1000);
-    digitalWrite(WindowL_O, HIGH);
-    WindowL_O_Value = 0;
-    delay(1000);
-    digitalWrite(WindowL_C, LOW);
-    WindowL_C_Value = 1;
-    delay(1000);
-    digitalWrite(Fan, HIGH);
-    Fan_Value = 0;
-    delay(1000);
-    digitalWrite(Ventilation, HIGH);
-    Ventilation_Value = 0;
-    delay(1000);
-  }
-  if ((temperature >= Low_Temp) || (temperature <= High_Temp)) {
-    if ((VPD < Low_VPD) || (VPD > High_VPD)) {
-      digitalWrite(WindowR_O, LOW);
-      WindowR_O_Value = 1;
-      delay(1000);
-      digitalWrite(WindowR_C, HIGH);
-      WindowR_C_Value = 0;
-      delay(1000);
-      digitalWrite(WindowL_O, LOW);
-      WindowL_O_Value = 1;
-      delay(1000);
-      digitalWrite(WindowL_C, HIGH);
-      WindowL_C_Value = 0;
-      delay(1000);
-      digitalWrite(Fan, LOW);
-      Fan_Value = 1;
-      delay(1000);
-      digitalWrite(Ventilation, LOW);
-      Ventilation_Value = 1;
-      delay(1000);
-    }
-  }
-  if (temperature > High_Temp) {
-    digitalWrite(WindowR_O, LOW);
     WindowR_O_Value = 1;
     delay(1000);
-    digitalWrite(WindowR_C, HIGH);
+    digitalWrite(WindowR_C, LOW);
     WindowR_C_Value = 0;
     delay(1000);
-    digitalWrite(WindowL_O, LOW);
+    digitalWrite(WindowL_O, HIGH);
     WindowL_O_Value = 1;
     delay(1000);
-    digitalWrite(WindowL_C, HIGH);
+    digitalWrite(WindowL_C, LOW);
     WindowL_C_Value = 0;
     delay(1000);
-    digitalWrite(Fan, LOW);
+    digitalWrite(Fan, HIGH);
     Fan_Value = 1;
     delay(1000);
-    digitalWrite(Ventilation, LOW);
+    digitalWrite(Ventilation, HIGH);
     Ventilation_Value = 1;
     delay(1000);
   }
 
-  String data = String(temperature) + "," + String(humidity) + "," + String(AH) + "," + String(VPD) + "," + String(WindowR_O_Value) + "," + String(WindowR_C_Value) + "," + String(WindowL_O_Value) + "," + String(WindowL_C_Value)+ "," + String(Fan_Value)+ "," + String(Ventilation_Value);
+  if ((temperature >= Low_Temp) || (temperature <= High_Temp)) {
+    if ((VPD < Low_VPD) || (VPD > High_VPD)) {
+      digitalWrite(WindowR_O, LOW);
+      WindowR_O_Value = 0;
+      delay(1000);
+      digitalWrite(WindowR_C, HIGH);
+      WindowR_C_Value = 1;
+      delay(1000);
+      digitalWrite(WindowL_O, LOW);
+      WindowL_O_Value = 0;
+      delay(1000);
+      digitalWrite(WindowL_C, HIGH);
+      WindowL_C_Value = 1;
+      delay(1000);
+      digitalWrite(Fan, HIGH);
+      Fan_Value = 1;
+      delay(1000);
+      digitalWrite(Ventilation, HIGH);
+      Ventilation_Value = 1;
+      delay(1000);
+    }
+  } else {
+    digitalWrite(WindowR_O, HIGH);
+    WindowR_O_Value = 1;
+    delay(1000);
+    digitalWrite(WindowR_C, LOW);
+    WindowR_C_Value = 0;
+    delay(1000);
+    digitalWrite(WindowL_O, HIGH);
+    WindowL_O_Value = 1;
+    delay(1000);
+    digitalWrite(WindowL_C, LOW);
+    WindowL_C_Value = 0;
+    delay(1000);
+    digitalWrite(Fan, LOW);
+    Fan_Value = 0;
+    delay(1000);
+    digitalWrite(Ventilation, LOW);
+    Ventilation_Value = 0;
+    delay(1000);
+  }
+  
+  if (temperature > High_Temp) {
+    digitalWrite(WindowR_O, LOW);
+    WindowR_O_Value = 0;
+    delay(1000);
+    digitalWrite(WindowR_C, HIGH);
+    WindowR_C_Value = 1;
+    delay(1000);
+    digitalWrite(WindowL_O, LOW);
+    WindowL_O_Value = 0;
+    delay(1000);
+    digitalWrite(WindowL_C, HIGH);
+    WindowL_C_Value = 1;
+    delay(1000);
+    digitalWrite(Fan, LOW);
+    Fan_Value = 0;
+    delay(1000);
+    digitalWrite(Ventilation, LOW);
+    Ventilation_Value = 0;
+    delay(1000);
+  }
+
+  String data = String(temperature) + "," + String(humidity) + "," + String(AH) + "," + String(VPD) + "," + String(WindowR_O_Value) + "," + String(WindowR_C_Value) + "," + String(WindowL_O_Value) + "," + String(WindowL_C_Value) + "," + String(Fan_Value) + "," + String(Ventilation_Value);
   Serial.println(data);
 }
